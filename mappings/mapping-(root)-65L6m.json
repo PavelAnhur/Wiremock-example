@@ -1,0 +1,15 @@
+{
+  "id" : "1ae38dec-fd8e-3588-a16e-bcc2be75aa03",
+  "request" : {
+    "url" : "/",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 404,
+    "bodyFileName" : "body-(root)-65L6m.txt",
+    "headers" : {
+      "Content-Type" : "text/plain"
+    }
+  },
+  "uuid" : "1ae38dec-fd8e-3588-a16e-bcc2be75aa03"
+}
