@@ -4,7 +4,8 @@
     <test verbose="2" name="MockLab tests">
         <classes>
             <class name="com.epam.api.wiremock.mocklab.stubbing.MockLabStubbingTest"/>
-            <class name="com.epam.api.wiremock.mocklab.POST.MockLabPOSTPositiveTest"/>
+            <class name="com.epam.api.wiremock.mocklab.POST.MockLabPOSTTest"/>
+            <class name="com.epam.api.wiremock.mocklab.POST.MockLabPOSTServerErrorTest"/>
         </classes>
     </test>
 </suite>

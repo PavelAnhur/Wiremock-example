@@ -1,7 +1,6 @@
 package com.epam.api.wiremock.mocklab.POST;
 
-import com.epam.api.wiremock.dataprovider.DataProviderForPOSTPositiveTest;
-import com.epam.api.wiremock.mocklab.POST.MockLabPOSTTestsConditions;
+import com.epam.api.wiremock.dataprovider.DataProviderForPOSTTest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Factory;
@@ -20,13 +19,13 @@ import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 
 @Slf4j
-public class MockLabPOSTPositiveTest extends MockLabPOSTTestsConditions {
+public class MockLabPOSTTest extends MockLabPOSTTestsConditions {
     private final int statusCode;
     private final String requestBody;
     private final String responseBody;
 
-    @Factory(dataProvider = "dataForPOSTTest", dataProviderClass = DataProviderForPOSTPositiveTest.class)
-    public MockLabPOSTPositiveTest(int statusCode, String requestBody, String responseBody) {
+    @Factory(dataProvider = "dataForPOSTTest", dataProviderClass = DataProviderForPOSTTest.class)
+    public MockLabPOSTTest(int statusCode, String requestBody, String responseBody) {
         this.statusCode = statusCode;
         this.requestBody = requestBody;
         this.responseBody = responseBody;
@@ -47,11 +46,12 @@ public class MockLabPOSTPositiveTest extends MockLabPOSTTestsConditions {
                                       .build();
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            testResultsHead();
             int actualStatusCode = response.statusCode();
-            log.info("Test -- {}, response status code: {}", this.getClass().getSimpleName(), actualStatusCode);
+            log.info("Response status code: {}", actualStatusCode);
             softAssert.assertEquals(actualStatusCode, statusCode);
             String actualResponseBody = response.body();
-            log.info("Test -- {}, response body: {}", this.getClass().getSimpleName(), actualResponseBody);
+            log.info("Response body: {}", actualResponseBody);
             softAssert.assertEquals(response.body(), responseBody);
             softAssert.assertAll();
         } catch (IOException | InterruptedException e) {

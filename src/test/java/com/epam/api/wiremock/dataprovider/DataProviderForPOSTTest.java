@@ -6,10 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.DataProvider;
 
-import java.io.IOException;
-
 @Slf4j
-public class DataProviderForPOSTPositiveTest {
+public class DataProviderForPOSTTest {
     private static final String REQUEST_BODY_PATH = "src/test/resources/request-body/";
     private static final String RESPONSE_BODY_PATH = "src/test/resources/response-body/";
     private static final String REQUEST_BODY_JSON_VALID = "company-contact-valid.json";
@@ -26,15 +24,10 @@ public class DataProviderForPOSTPositiveTest {
     }
 
     private String getBodyAsString(final String fileName) {
-        try {
-            return JsonUtils.fromJsonFileToString(REQUEST_BODY_PATH, fileName);
-        } catch (IOException e) {
-            log.error(e.getMessage());
-        }
-        return null;
+        return JsonUtils.fromJsonFileToString(REQUEST_BODY_PATH, fileName);
     }
 
     private String getResponseBodyAsString() {
-        return FileUtils.getDataFromFile(RESPONSE_BODY_PATH, DataProviderForPOSTPositiveTest.RESPONSE_BODY_FILE_INVALID);
+        return FileUtils.getDataFromFile(RESPONSE_BODY_PATH, DataProviderForPOSTTest.RESPONSE_BODY_FILE_INVALID);
     }
 }

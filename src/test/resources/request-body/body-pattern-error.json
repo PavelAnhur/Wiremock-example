@@ -1,0 +1,6 @@
+{
+  "matchesJsonPath": {
+    "expression": "$.contact.id",
+    "equalTo": "666"
+  }
+}
