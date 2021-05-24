@@ -1,6 +1,7 @@
 package com.epam.api.wiremock.mocklab.GET;
 
 import com.epam.api.wiremock.mocklab.MockLabCommonConditions;
+import com.epam.utils.FileUtils;
 
 public class MockLabGETTestsConditions extends MockLabCommonConditions {
     private static final String REGEX = "[0-9]{1,10}";
@@ -9,6 +10,22 @@ public class MockLabGETTestsConditions extends MockLabCommonConditions {
     private static final String HEADER_KEY = "Content-Type";
     private static final String HEADER_VALUE = "application/json";
     private static final String TRANSFORMER = "response-template";
+    private static final String HEADER_VALUE_ERROR_QUERY = "text/plain";
+    private static final String RESPONSE_BODY_FILE_ERROR_QUERY = "body-(root)-65L6m.txt";
+    private static final String RESPONSE_BODY_PATH = "src/test/resources/response-body/";
+    private static final String ENDPOINT_ERROR_QUERY = "/";
+
+    public static String getEndpointErrorQuery() {
+        return ENDPOINT_ERROR_QUERY;
+    }
+
+    public static String getResponseBodyErrorQuery() {
+        return FileUtils.getDataFromFile(RESPONSE_BODY_PATH, RESPONSE_BODY_FILE_ERROR_QUERY);
+    }
+
+    public static String getHeaderValueErrorQuery() {
+        return HEADER_VALUE_ERROR_QUERY;
+    }
 
     public static String getRegex() {
         return REGEX;
