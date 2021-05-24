@@ -5,7 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class MockLabPOSTTestsConditions extends MockLabCommonConditions {
-    private static final String REQUEST_BODY = "{\n  \"contact\": {\n      \"id\": \"7374859\",\n      \"firstName\": \"Wire\",\n      \"lastName\": \"Mock\",\n      \"email\": \"wiremock@gmail.com\",\n      \"dateAdded\": \"Jason st 8-23\",\n      \"companyId\": \"999999\"\n    }\n}";
+    private static final String REQUEST_BODY = "{\n  \"contact\": {\n      \"id\": \"7374859\",\n      \"firstName\": " +
+                                                       "\"Wire\",\n      \"lastName\": \"Mock\",\n      \"email\":" +
+                                                       " \"wiremock@gmail.com\",\n      \"dateAdded\": \"Jason st 8-23\"," +
+                                                       "\n      \"companyId\": \"999999\"\n    }\n}";
     private static final String RESPONSE_BODY = "{\n  \"result\": \"success!\" \n}";
     private static final String ENDPOINT = "/v1/contacts";
     private static final String HEADER_KEY = "headers";

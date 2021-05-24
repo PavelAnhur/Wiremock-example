@@ -6,6 +6,7 @@
             <class name="com.epam.api.wiremock.mocklab.stubbing.MockLabStubbingTest"/>
             <class name="com.epam.api.wiremock.mocklab.POST.MockLabPOSTTest"/>
             <class name="com.epam.api.wiremock.mocklab.POST.MockLabPOSTServerErrorTest"/>
+            <class name="com.epam.api.wiremock.mocklab.GET.MockLabGETTest"/>
         </classes>
     </test>
 </suite>

@@ -1,6 +1,6 @@
 package com.epam.api.wiremock.mocklab.POST;
 
-import com.epam.api.wiremock.dataprovider.DataProviderForPOSTTest;
+import com.epam.api.wiremock.dataprovider.DataProviderForPOSTTests;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Factory;
@@ -24,7 +24,7 @@ public class MockLabPOSTTest extends MockLabPOSTTestsConditions {
     private final String requestBody;
     private final String responseBody;
 
-    @Factory(dataProvider = "dataForPOSTTest", dataProviderClass = DataProviderForPOSTTest.class)
+    @Factory(dataProvider = "dataForPOSTTest", dataProviderClass = DataProviderForPOSTTests.class)
     public MockLabPOSTTest(int statusCode, String requestBody, String responseBody) {
         this.statusCode = statusCode;
         this.requestBody = requestBody;

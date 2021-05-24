@@ -7,7 +7,7 @@ import org.apache.http.HttpStatus;
 import org.testng.annotations.DataProvider;
 
 @Slf4j
-public class DataProviderForPOSTTest {
+public class DataProviderForPOSTTests {
     private static final String REQUEST_BODY_PATH = "src/test/resources/request-body/";
     private static final String RESPONSE_BODY_PATH = "src/test/resources/response-body/";
     private static final String REQUEST_BODY_JSON_VALID = "company-contact-valid.json";
@@ -28,6 +28,6 @@ public class DataProviderForPOSTTest {
     }
 
     private String getResponseBodyAsString() {
-        return FileUtils.getDataFromFile(RESPONSE_BODY_PATH, DataProviderForPOSTTest.RESPONSE_BODY_FILE_INVALID);
+        return FileUtils.getDataFromFile(RESPONSE_BODY_PATH, DataProviderForPOSTTests.RESPONSE_BODY_FILE_INVALID);
     }
 }
