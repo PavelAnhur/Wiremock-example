@@ -1,0 +1,10 @@
+{
+  "contact": {
+    "id": "666",
+    "firstName": "Wire",
+    "lastName": "Mock",
+    "email": "wiremock@gmail.com",
+    "dateAdded": "Jason st 8-23",
+    "companyId": "999999"
+  }
+}

@@ -8,38 +8,32 @@ import org.apache.http.HttpStatus;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 
 public class GetQueryWithProgramMockConditions extends CommonConditions {
     private static final String END_POINT = "/api/friend";
     private WireMockServer wireMockServer;
-    private ResponseDefinitionBuilder mockResponse;
 
     @BeforeMethod
     public void setUp() {
         AddressConfiguration.makePortAvailableIfOccupied(getPort());
-        wireMockServer = new WireMockServer(options().bindAddress(getHost()));
+        wireMockServer = new WireMockServer(options().bindAddress(getHost()).port(getPort()));
         wireMockServer.start();
-        configureFor(getHost(), getPort());
 
-        mockResponse = new ResponseDefinitionBuilder();
-        mockResponse.withStatus(HttpStatus.SC_OK);
-        mockResponse.withStatusMessage("Hello, my friend!");
-        mockResponse.withHeader("Content-Type", "applications/json");
+        ResponseDefinitionBuilder mockResponse =
+                new ResponseDefinitionBuilder()
+                        .withStatus(HttpStatus.SC_OK)
+                        .withStatusMessage("Hello, my friend!")
+                        .withHeader("Content-Type", "applications/json");
 
-        stubFor(get(END_POINT).willReturn(getMockResponse()));
+        stubFor(get(END_POINT).willReturn(mockResponse));
     }
 
     @AfterSuite
     public void tearDown() {
         wireMockServer.stop();
-    }
-
-    public ResponseDefinitionBuilder getMockResponse() {
-        return mockResponse;
     }
 
     public static String getEndPoint() {

@@ -12,6 +12,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
+import static java.lang.String.format;
+
 @Slf4j
 public class GetTestWithProgramMockServer extends GetQueryWithProgramMockConditions {
 
@@ -20,7 +22,7 @@ public class GetTestWithProgramMockServer extends GetQueryWithProgramMockConditi
         SoftAssert softAssert = new SoftAssert();
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(URI.create(
-                String.format(getUrl(), getPort()) + getEndPoint()))
+                format(getUrl(), getPort()) + getEndPoint()))
                                       .GET()
                                       .build();
         try {
